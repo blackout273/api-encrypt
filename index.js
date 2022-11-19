@@ -9,7 +9,6 @@ app.use(cors({
 app.use(express.json())
 app.post("/",((req,res)=>{
     const saltRounds = 10;
-    console.log("tick")
     bcrypt.hash(req.body.userPassword, saltRounds, function(err, hash) {
         res.send(hash)
     });
