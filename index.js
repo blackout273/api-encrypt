@@ -7,6 +7,10 @@ app.use(cors({
     origin: "*"
   }))
 app.use(express.json())
+app.get("/",((req,res)=>{
+    res.send("Bem Vindo a API-ENCRYPT !!")
+}))
+
 app.post("/",((req,res)=>{
     const saltRounds = 10;
     bcrypt.hash(req.body.userPassword, saltRounds, function(err, hash) {
